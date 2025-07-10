@@ -1,6 +1,19 @@
 package com.example.demo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Course {
+	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	private long id;
+	private String name;
+	private String author;
+	
 	@Override
 	public String toString() {
 		return "Course [id=" + id + ", name=" + name + ", author=" + author + "]";
@@ -23,9 +36,6 @@ public class Course {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	private long id;
-	private String name;
-	private String author;
 	
 	public Course(long id, String name, String author) {
 		super();
